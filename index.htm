@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+    <head>
+        <title>Introduction to AngularJS</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="bootstrap.min.css" />
+        <style>
+            html, body
+            {
+                font-size: 1.1em;
+            }
+        </style>
+        
+        <!-- load angular via CDN -->
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+        <script src="https://use.fontawesome.com/8f3f65e87e.js"></script>
+    </head>
+    <body>
+
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="">AngularJS</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href=""><i class="fa fa-home"></i> Home</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+
+        <div class="container">
+
+			<div ng-controller="mainController">
+                
+                <h1>Hello, {{ name }}!</h1>
+
+                <div>
+                    <label>Whats your github? </label>
+                    <input type="text" ng-model="username"/>
+                </div>
+
+                    <hr />
+
+                    <h1>github.com/{{ lowercaseUsername() }}<h1>
+                        
+                    <h3>Rules</h3>
+                    <ul class="list-group">
+                        <li ng-repeat="rule in rules" class="list-group-item" ng-class="{ 'list-group-item-success': rule.checkFunction(), 'list-group-item-danger': !rule.checkFunction() }">
+                            <i class="fa" ng-class="{ 'fa-check': rule.checkFunction(), 'fa-times': !rule.checkFunction()}"></i>
+                            {{ rule.rulename }}
+                        </li>
+                    </ul>
+                
+            </div>
+
+		</div>
+
+    </body>
+</html>
